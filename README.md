@@ -23,7 +23,7 @@ After aggregating post-level features to the daily level (n=44 trading days) and
 
 ## Research Question
 
-Do modern transformer-based sentiment models outperform the rule-based VADER approach for predicting the daily direction of GME's stock price using sentiment extracted from r/wallstreetbets?
+Do modern transformer-based sentiment models outperform the rule-based VADER approach for predicting the daily direction of GME's stock price during the Jan to Mar 2021 short squeeze using sentiment extracted from r/wallstreetbets?
 
 ---
 
