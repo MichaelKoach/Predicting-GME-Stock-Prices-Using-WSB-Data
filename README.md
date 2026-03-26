@@ -23,7 +23,7 @@ After aggregating post-level features to the daily level (n=44 trading days) and
 
 ## Research Question
 
-Do modern transformer-based sentiment models outperform the rule-based VADER approach for predicting the daily direction of GME's stock price during the Jan to Mar 2021 short squeeze using sentiment extracted from r/wallstreetbets?
+Do modern transformer-based sentiment models outperform the rule-based VADER approach for predicting the daily direction of GME's stock price using sentiment extracted from r/wallstreetbets?
 
 ---
 
@@ -202,14 +202,12 @@ Several directions could extend this analysis. Training on longer time horizons 
 │   ├── Feature_Extraction.ipynb         # Notebook 1: Data ingestion, preprocessing, sentiment extraction, aggregation
 │   ├── EDA.ipynb                        # Notebook 2: Exploratory data analysis (7 sections)
 │   └── Classification_Experiments.ipynb # Notebook 3: Feature engineering, classification, results
+├── results.csv                                    # Classification results for all 72 experiments
 ├── data/
 │   ├── reddit_wsb.csv                             # Raw Reddit data (from Kaggle)
 │   ├── df_with_all_sentiments.parquet             # Dataset 1: Post-level with all sentiment scores
 │   ├── dataset2_daily_unweighted.parquet          # Dataset 2: Daily aggregated (unweighted)
 │   └── dataset3_daily_weighted.parquet            # Dataset 3: Daily aggregated (engagement-weighted)
-└── models/
-    ├── engineered_results.csv       # Classification results for all 72 experiments
-    └── engineered_models.joblib     # Fitted model objects
 ```
 
 ## How to Reproduce
