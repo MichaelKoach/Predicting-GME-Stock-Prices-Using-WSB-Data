@@ -19,6 +19,8 @@ The study extends Wang & Luo (2021), who used VADER as their sole sentiment tool
 
 After aggregating post-level features to the daily level (n=44 trading days) and applying time-series cross-validation, we find that no sentiment model or feature engineering technique reliably predicts daily price direction beyond a majority-class baseline of 59.1%. As a secondary finding, we identify a data leakage issue in the original paper's train/test split methodology that likely inflated their reported accuracy. Under corrected methodology, all models produce near-chance accuracy at the post level, and modest improvements over baseline at the daily level.
 
+**The bottom line:** for anyone considering Reddit sentiment as a trading signal, these results suggest that how much a community is talking (post volume, engagement metrics) carries more useful information than what they're saying. None of the five sentiment approaches tested here, from simple rule-based tools to state-of-the-art transformers, produced a reliable edge over just counting posts and upvotes.
+
 ---
 
 ## Research Question
@@ -199,7 +201,6 @@ Several directions could extend this analysis. Training on longer time horizons 
 ```
 ├── README.md
 ├── results.csv                        # Classification results for all 72 experiments
-├── setup_repo.sh
 └── notebooks/
     ├── Feature_Extraction.ipynb         # Notebook 1: Data ingestion, preprocessing, sentiment extraction, aggregation
     ├── EDA.ipynb                        # Notebook 2: Exploratory data analysis (7 sections)
@@ -217,9 +218,9 @@ Several directions could extend this analysis. Training on longer time horizons 
 
 ### Execution Order
 
-1. **Feature_Extraction.ipynb** downloads data, preprocesses text, runs all five sentiment models (approximately 2 to 3 hours on T4 GPU), and produces the three datasets. Checkpoints are saved after each sentiment model in case of runtime disconnection.
-2. **EDA.ipynb** loads the aggregated datasets and generates all exploratory visualizations. No GPU required.
-3. **Classification_Experiments.ipynb** performs feature engineering, trains and evaluates all classifiers, and produces the results tables. Runs in approximately 5 minutes. GPU is optional (used only for XGBoost acceleration).
+1. **[Feature_Extraction.ipynb](notebooks/Feature_Extraction.ipynb)** downloads data, preprocesses text, runs all five sentiment models (approximately 2 to 3 hours on T4 GPU), and produces the three datasets. Checkpoints are saved after each sentiment model in case of runtime disconnection.
+2. **[EDA.ipynb](notebooks/EDA.ipynb)** loads the aggregated datasets and generates all exploratory visualizations. No GPU required.
+3. **[Classification_Experiments.ipynb](notebooks/Classification_Experiments.ipynb)** performs feature engineering, trains and evaluates all classifiers, and produces the results tables. Runs in approximately 5 minutes. GPU is optional (used only for XGBoost acceleration).
 
 ---
 
